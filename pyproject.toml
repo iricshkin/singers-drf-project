@@ -1,0 +1,18 @@
+[tool.poetry]
+name = "singers-drf-project"
+version = "0.1.0"
+description = "Каталог исполнителей и их альбомов с песнями"
+authors = ["Irina Fok <fokira@mail.ru>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+django = "^4.1.7"
+python-dotenv = "^0.21.1"
+flake8 = "^6.0.0"
+isort = "^5.12.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
