@@ -1,3 +1,5 @@
+from typing import Any
+
 from django.db import models
 
 from .validators import validate_year
@@ -17,7 +19,7 @@ class Singer(models.Model):
         verbose_name = 'Исполнитель'
         verbose_name_plural = 'Исполнители'
 
-    def __str__(self) -> str:
+    def __str__(self) -> Any:
         """Метод возвращает строковое представление исполнителя."""
         return self.name
 
@@ -49,7 +51,7 @@ class Album(models.Model):
         verbose_name_plural = 'Альбомы'
         ordering = ['-id']
 
-    def __str__(self) -> str:
+    def __str__(self) -> Any:
         """Метод возвращает строковое представление альбомов."""
         return self.title
 
@@ -75,7 +77,7 @@ class Song(models.Model):
         verbose_name_plural = 'Песни'
         ordering = ['-id']
 
-    def __str__(self) -> str:
+    def __str__(self) -> Any:
         """Метод возвращает строковое представление песен."""
         return self.title
 
@@ -110,6 +112,6 @@ class SongInAlbum(models.Model):
             )
         ]
 
-    def __str__(self) -> str:
+    def __str__(self) -> Any:
         """Метод возвращает строковое модели."""
         return f'{self.number}: {self.song}'

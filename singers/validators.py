@@ -3,7 +3,7 @@ import datetime
 from django.core.exceptions import ValidationError
 
 
-def validate_year(year):
+def validate_year(year: int) -> None:
     """Проверка года на корректность."""
 
     current_year = datetime.datetime.now()
