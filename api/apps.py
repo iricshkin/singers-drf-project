@@ -1,6 +1,6 @@
 from django.apps import AppConfig  # type: ignore
 
 
-class SingersConfig(AppConfig):
+class ApiConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
-    name = 'singers'
+    name = 'api'

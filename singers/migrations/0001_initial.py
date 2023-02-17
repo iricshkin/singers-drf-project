@@ -10,16 +10,37 @@ class Migration(migrations.Migration):
 
     initial = True
 
-    dependencies = [
-    ]
+    dependencies = []
 
     operations = [
         migrations.CreateModel(
             name='Album',
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('title', models.CharField(db_index=True, max_length=250, verbose_name='Название альбома')),
-                ('year', models.PositiveIntegerField(blank=True, validators=[singers.validators.validate_year], verbose_name='Год выпуска')),
+                (
+                    'id',
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name='ID',
+                    ),
+                ),
+                (
+                    'title',
+                    models.CharField(
+                        db_index=True,
+                        max_length=250,
+                        verbose_name='Название альбома',
+                    ),
+                ),
+                (
+                    'year',
+                    models.PositiveIntegerField(
+                        blank=True,
+                        validators=[singers.validators.validate_year],
+                        verbose_name='Год выпуска',
+                    ),
+                ),
             ],
             options={
                 'verbose_name': 'Альбом',
@@ -30,8 +51,21 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Singer',
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('name', models.CharField(max_length=70, verbose_name='Исполнитель')),
+                (
+                    'id',
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name='ID',
+                    ),
+                ),
+                (
+                    'name',
+                    models.CharField(
+                        max_length=70, verbose_name='Исполнитель'
+                    ),
+                ),
             ],
             options={
                 'verbose_name': 'Исполнитель',
@@ -41,8 +75,23 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Song',
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('title', models.CharField(db_index=True, max_length=250, verbose_name='Название песни')),
+                (
+                    'id',
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name='ID',
+                    ),
+                ),
+                (
+                    'title',
+                    models.CharField(
+                        db_index=True,
+                        max_length=250,
+                        verbose_name='Название песни',
+                    ),
+                ),
             ],
             options={
                 'verbose_name': 'Песня',
@@ -53,10 +102,37 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='SongInAlbum',
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('number', models.PositiveSmallIntegerField(verbose_name='Порядковый номер песни в альбоме')),
-                ('album', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='singers.album', verbose_name='Альбом с песней')),
-                ('song', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='singers.song', verbose_name='Песня в альбоме')),
+                (
+                    'id',
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name='ID',
+                    ),
+                ),
+                (
+                    'number',
+                    models.PositiveSmallIntegerField(
+                        verbose_name='Порядковый номер песни в альбоме'
+                    ),
+                ),
+                (
+                    'album',
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        to='singers.album',
+                        verbose_name='Альбом с песней',
+                    ),
+                ),
+                (
+                    'song',
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        to='singers.song',
+                        verbose_name='Песня в альбоме',
+                    ),
+                ),
             ],
             options={
                 'verbose_name': 'Песня в альбоме',
@@ -66,15 +142,26 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='song',
             name='albums',
-            field=models.ManyToManyField(related_name='songs', through='singers.SongInAlbum', to='singers.album'),
+            field=models.ManyToManyField(
+                related_name='songs',
+                through='singers.SongInAlbum',
+                to='singers.album',
+            ),
         ),
         migrations.AddField(
             model_name='album',
             name='singer',
-            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='albums', to='singers.singer', verbose_name='Исполнитель'),
+            field=models.ForeignKey(
+                on_delete=django.db.models.deletion.CASCADE,
+                related_name='albums',
+                to='singers.singer',
+                verbose_name='Исполнитель',
+            ),
         ),
         migrations.AddConstraint(
             model_name='songinalbum',
-            constraint=models.UniqueConstraint(fields=('album', 'number'), name='unique_number'),
+            constraint=models.UniqueConstraint(
+                fields=('album', 'number'), name='unique_number'
+            ),
         ),
     ]
