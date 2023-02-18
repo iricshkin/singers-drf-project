@@ -97,17 +97,17 @@ class SongInAlbum(models.Model):
     )
 
     number = models.PositiveSmallIntegerField(
-        verbose_name='Порядковый номер песни в альбоме',
+        verbose_name='Порядковый номер',
     )
 
     class Meta:
         """Метакласс для модели песни в альбоме."""
 
-        verbose_name = 'Песня в альбоме'
-        verbose_name_plural = 'Песни в альбоме'
+        verbose_name = 'Песня в альбомах'
+        verbose_name_plural = 'Песни в альбомах'
         constraints = [
             models.UniqueConstraint(
-                fields=['album', 'number'],
+                fields=['song', 'number'],
                 name='unique_number',
             )
         ]

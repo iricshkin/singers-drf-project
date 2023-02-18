@@ -1,6 +1,6 @@
 import datetime
 
-from django.core.exceptions import ValidationError  # type: ignore
+from django.core.exceptions import ValidationError
 
 
 def validate_year(year: int) -> None:
