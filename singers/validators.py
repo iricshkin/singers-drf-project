@@ -8,4 +8,4 @@ def validate_year(year: int) -> None:
 
     current_year = datetime.datetime.now()
     if year < 1900 or year > current_year.year:
-        raise ValidationError('Указан екорректный год!')
+        raise ValidationError('Указан некорректный год!')

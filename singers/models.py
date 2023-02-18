@@ -2,7 +2,7 @@ from typing import Any
 
 from django.db import models
 
-from .validators import validate_year
+from singers.validators import validate_year
 
 
 class Singer(models.Model):
