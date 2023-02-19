@@ -5,6 +5,7 @@ API-сервис позволяет создавать и управлять к�
 ### Стек технологий
 
 ![Django-app workflow](https://github.com/iricshkin/singers-drf-project/actions/workflows/app-testing.yml/badge.svg)
+
 [![Python](https://img.shields.io/badge/-Python-464646?style=flat&logo=Python&logoColor=56C0C0&color=008080)](https://www.python.org/)
 [![Django](https://img.shields.io/badge/-Django-464646?style=flat&logo=Django&logoColor=56C0C0&color=008080)](https://www.djangoproject.com/)
 [![Django REST Framework](https://img.shields.io/badge/-Django%20REST%20Framework-464646?style=flat&logo=Django%20REST%20Framework&logoColor=56C0C0&color=008080)](https://www.django-rest-framework.org/)
@@ -13,6 +14,10 @@ API-сервис позволяет создавать и управлять к�
 [![Docker-compose](https://img.shields.io/badge/-Docker%20compose-464646?style=flat&logo=Docker&logoColor=56C0C0&color=008080)](https://www.docker.com/)
 [![Nginx](https://img.shields.io/badge/-NGINX-464646?style=flat&logo=NGINX&logoColor=56C0C0&color=008080)](https://nginx.org/ru/)
 [![gunicorn](https://img.shields.io/badge/-gunicorn-464646?style=flat&logo=gunicorn&logoColor=56C0C0&color=008080)](https://gunicorn.org/)
+
+- Python 3.10
+- Django 4.1.7
+- Django REST Framework 3.14.0
 
 ## Установка и запуск
 
