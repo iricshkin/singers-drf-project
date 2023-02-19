@@ -16,6 +16,5 @@ RUN apt -y update \
 
 COPY . /app
 
-RUN chmod +x docker/docker-entrypoint.sh
+CMD ["gunicorn", "config.wsgi:application", "--bind", "0:8000" ] 
 
-ENTRYPOINT ["docker/docker-entrypoint.sh"]

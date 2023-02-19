@@ -11,10 +11,8 @@ API-сервис позволяет создавать и управлять к�
 [![PostgreSQL](https://img.shields.io/badge/-PostgreSQL-464646?style=flat&logo=PostgreSQL&logoColor=56C0C0&color=008080)](https://www.postgresql.org/)
 [![Docker](https://img.shields.io/badge/-Docker-464646?style=flat&logo=Docker&logoColor=56C0C0&color=008080)](https://www.docker.com/)
 [![Docker-compose](https://img.shields.io/badge/-Docker%20compose-464646?style=flat&logo=Docker&logoColor=56C0C0&color=008080)](https://www.docker.com/)
-
-- проект написан на Python 3.10 с использованием Django REST Framework
-- базы данных - PostgreSQL
-- система управления версиями - git
+[![Nginx](https://img.shields.io/badge/-NGINX-464646?style=flat&logo=NGINX&logoColor=56C0C0&color=008080)](https://nginx.org/ru/)
+[![gunicorn](https://img.shields.io/badge/-gunicorn-464646?style=flat&logo=gunicorn&logoColor=56C0C0&color=008080)](https://gunicorn.org/)
 
 ## Установка и запуск
 
@@ -31,21 +29,22 @@ sudo docker-compose up -d --build
 При первом запуске для функционирования проекта выполните команды:
 
 ```
-docker-compose exec web python manage.py migrate
-docker-compose exec web python manage.py createsuperuser
+sudo docker-compose exec web python manage.py migrate
+sudo docker-compose exec web python manage.py createsuperuser
+sudo docker-compose exec web python manage.py collectstatic --no-input
 ```
 
-После запуска проекта, подробную инструкцию можно будет посмотреть по адресу http://127.0.0.1:8000/redoc/ или http://127.0.0.1:8000/swagger/
+После запуска проекта, подробную инструкцию можно будет посмотреть по адресу http://localhost/redoc/ или http://localhost/swagger/
 
 ### Примеры обращения к API:
 
 - /swagger/ - Документация
-- /albums/ - Получить список всех альбомов / Создать новый альбом
-- /albums/{id}/ - Получить альбом по id / Обновить по id / Удалить по id
-- /singers/ - Получить список всех исполнителей / Создать нового исполнителя
-- /singers/{id}/ - Получить исполнителя по id / Обновить по id / Удалить по id
-- /songs/ - Получить список всех песен / Создать новую песню
-- /songs/{id}/ - Получить песню по id / Обновить по id / Удалить по id
+- /api/v1/albums/ - Получить список всех альбомов / Создать новый альбом
+- /api/v1/albums/{id}/ - Получить альбом по id / Обновить по id / Удалить по id
+- /api/v1/singers/ - Получить список всех исполнителей / Создать нового исполнителя
+- /api/v1/singers/{id}/ - Получить исполнителя по id / Обновить по id / Удалить по id
+- /api/v1/songs/ - Получить список всех песен / Создать новую песню
+- /api/v1/songs/{id}/ - Получить песню по id / Обновить по id / Удалить по id
 
 ### Об авторе
 
