@@ -16,8 +16,9 @@ SECRET_KEY = os.getenv('SECRET_KEY', default='123')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
+DEBUG = bool(int(os.getenv('DEBUG', default=1)))
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = os.getenv('DJANGO_ALLOWED_HOSTS').split(' ')
 
 
 # Application definition
@@ -83,7 +84,6 @@ DATABASES = {
         'PORT': os.getenv('DB_PORT', default='5432'),
     },
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators

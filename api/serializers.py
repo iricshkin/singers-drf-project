@@ -3,7 +3,6 @@ from typing import Any
 from django.db import transaction
 from rest_framework import serializers
 from rest_framework.validators import UniqueTogetherValidator
-
 from singers.models import Album, Singer, Song, SongInAlbum
 
 
@@ -109,5 +108,10 @@ class SongInAlbumSerializer(serializers.ModelSerializer):
                 queryset=SongInAlbum.objects.all(),
                 fields=['song', 'number'],
                 message='Порядковый номер песни в альбомах должен отличаться!',
-            )
+            ),
+            UniqueTogetherValidator(
+                queryset=SongInAlbum.objects.all(),
+                fields=['album', 'number'],
+                message='Порядковый номер песни в альбоме уже существует!',
+            ),
         ]

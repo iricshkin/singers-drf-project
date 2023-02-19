@@ -1,7 +1,6 @@
 from typing import Any
 
 from django.db import models
-
 from singers.validators import validate_year
 
 
@@ -11,6 +10,7 @@ class Singer(models.Model):
     name = models.CharField(
         verbose_name='Исполнитель',
         max_length=70,
+        unique=True,
     )
 
     class Meta:
@@ -108,8 +108,12 @@ class SongInAlbum(models.Model):
         constraints = [
             models.UniqueConstraint(
                 fields=['song', 'number'],
-                name='unique_number',
-            )
+                name='unique_song_number',
+            ),
+            models.UniqueConstraint(
+                fields=['album', 'number'],
+                name='unique_album_number',
+            ),
         ]
 
     def __str__(self) -> Any:

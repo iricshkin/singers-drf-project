@@ -1,11 +1,11 @@
 from typing import Any
 
 from rest_framework import viewsets
+from singers.models import Album, Singer, SongInAlbum
 
 from api.serializers import (DetailAlbumSerializer, DetailSingerSerializer,
                              ListAlbumSerializer, ListSinderSerializer,
                              SongInAlbumSerializer)
-from singers.models import Album, Singer, SongInAlbum
 
 
 class SingerViewSet(viewsets.ModelViewSet):
